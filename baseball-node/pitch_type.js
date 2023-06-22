@@ -119,9 +119,9 @@ async function predictSample(sample) {
   console.log('calling predictSample on ', sample);
   let result = model.predict(tf.tensor(sample, [1,sample.length])).arraySync();
   console.log(result);
-  var maxValue = 0;
-  var predictedPitch = 7;
-  for (var i = 0; i < NUM_PITCH_CLASSES; i++) {
+  let maxValue = 0;
+  let predictedPitch = 7;
+  for (let i = 0; i < NUM_PITCH_CLASSES; i++) {
     if (result[0][i] > maxValue) {
       predictedPitch = i;
     }
